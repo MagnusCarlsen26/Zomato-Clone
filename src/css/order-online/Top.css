@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.inspiration{
+    margin-top: 20px;
+}
+.inspiration p{
+    font-size: 2rem;
+    font-family: 'Suranna', serif;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+.nav{
+    position: relative;
+    overflow: hidden;
+    display: grid;
+}
+.foods{
+    margin-right: 40px;
+    border-radius: 50%;
+}
+.foods p::first-letter{
+    text-transform: capitalize;
+}
+.foods p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.foods img{
+    
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+.scroll-button{
+    position: absolute;
+    top: 40%;
+    z-index: 1;
+}
+.scroll-button p{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: large;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, 
+                rgba(0, 0, 0, 0.14) 0px 6px 10px 0px, 
+                rgba(0, 0, 0, 0.12) 0px 1px 18px 0px;
+}
