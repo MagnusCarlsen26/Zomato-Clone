@@ -7,7 +7,7 @@ import React from 'react'
 const OrderOnline = () => {
     const [deliver , setDelivery] = React.useState(true)
     const [dining , setDining] = React.useState(false)
-
+    const  t = 0
 
     return (
         <>
