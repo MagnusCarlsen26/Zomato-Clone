@@ -1,0 +1,57 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Suranna&display=swap');
+.order-online-nav{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+.order-online-nav img{
+    width: 150px;
+    height: 30px;
+}
+.data{
+    box-shadow: 5px 5px 5px rgba(40, 28, 28, 0.565)
+}
+.order-online-nav button{
+    background-color: #fff;
+    /* border: 2px solid black; */
+    border: none;
+    margin: 10px;
+    /* border-radius: 35%; */
+    /* bot */
+}
+.order-online-nav button:hover{
+    cursor: pointer;
+
+}
+.address{
+    font-size: 0.8rem;
+    margin-top: 20px;
+    color: #00000077;
+    /* letter-spacing: ; */
+}
+.status{
+    display: flex;
+}
+.status :hover{
+    cursor: pointer;
+}
+.deliver-button,.dinig-button{
+    display: flex;
+    margin-right: 20px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+.deliver-button img ,.dinig-button img {
+    width: 30px;
+}
+.option-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    min-width: 70px;
+}
+.font{
+    font-family: 'Suranna', serif;
+}

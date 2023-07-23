@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+.option img{
+    object-fit: cover;
+    object-position: center;
+    width: 350px;
+    height: 170px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+.option{
+    border : 1px solid white;
+    border-radius: 25px;
+}
+.optio-text{
+    padding : 10px;
+    line-height: 30px;
+    padding-left: 25px;
+}
+.heading-d{
+    font-size: 1.5rem;
+}
+.dees{
+    color: #ffffffab;
+}
+.text{
+    /* border : 1px solid white; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.title{
+    font-weight:bold;
+    font-size: 2.8rem;
+    /* letter-spacing: 1px; */
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+.abcd,.info{
+    font-size: 1.2rem;
+}
+.info{
+    /* border : 1px solid white; */
+    position: relative;
+    margin-top: auto;
+    color: yellow;
+    text-decoration: none;
+}
+.cards{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    column-gap: 30px;
+}
+.card{
+    margin-top: 50px;
+    min-height: 350px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    border : 1px solid white;
+    
+}
+.card:hover{
+    cursor: pointer;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    
+}
+.card-sheet{
+    background: linear-gradient(to top,#000 0%,rgb(0,0,0,0) 30%);
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-left: 20px;
+    line-height: 25px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+}
+.places{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    column-gap: 20px;
+    row-gap: 24px;
+    
+}
+.place{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid white;
+    line-height: 30px;
+    transition: background-position 0.5s;
+}
+.color-change{
+    font-size: 0.9rem;
+    /* color: #ffffff90; */
+}
+.place:hover{
+    cursor: pointer;
+    /* animation: animate 1s linear; */
+    /* color: black; */
+}   
+
+.inc-font{
+    font-size: 1.5rem;
+}
+.arrow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

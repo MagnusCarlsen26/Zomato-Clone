@@ -1,0 +1,32 @@
+.footer{
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    color: rgb(181, 196, 209);
+}
+ul{
+    list-style-type: none;
+    line-height: 32px;
+}
+.khushal{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.social-icons a{
+    padding-right: 10px;
+}
+.social-icons{
+    padding-bottom: 10px;
+}
+.footer img{
+    width: 150px;
+    padding-bottom: 7   px;
+}
+.hr{
+    margin-top: 40px;
+}
+.copyright{
+    margin-top: 40px;
+    padding-bottom: 40px;    
+}

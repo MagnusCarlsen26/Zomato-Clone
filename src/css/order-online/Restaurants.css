@@ -1,0 +1,110 @@
+.restaurant-cards{
+
+}
+.restaurant-column{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.restaurant-card{
+    /* border: 1px solid black; */
+    padding: 10px;
+    border-radius: 10px;
+}
+.restaurant-card:hover{
+    border: 0.1rem solid rgb(232, 232, 232);
+    cursor: pointer;
+}
+.restaurant-card img {
+    width: 100%;
+    /* height: 100%; */
+    border-radius: 10px;
+}
+.resto-info{
+    display: grid;
+}
+.resto-info p {
+    /* border : 1px solid black; */
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* Limit the number of lines to display */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.safety{
+    display: flex;
+    /* border : 1px solid black; */
+    align-items: center;
+}
+.safety p{
+    padding: 4px;
+    /* border : 1px solid black; */
+    color: rgb(130, 130, 130);
+}
+.safety img {
+    height: 20px;
+    width: 50px;
+    border : 1px solid black;
+}
+.rating{
+    background-color: #267e3e;
+    color: aliceblue;
+    font-weight: 900;
+    display: flex;
+    border-radius: 7px;
+    align-items: center;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.rating p {
+    display: flex;
+    align-items: center;
+}
+.rating svg{
+    width: 8px;
+    height: 8px;
+}
+.filters{
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter{
+    display: flex;
+    padding: 0.8rem;
+    margin-right: 10px;
+    border : 1px solid rgb(207, 207, 207);
+    color: rgb(156, 156, 156);
+    box-shadow: rgba(54, 54, 54, 0.06) 0px 1px 2px;
+    font-size: 1.4rem;
+    border-radius: 10px;
+}
+.sticky-filters{
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+}
+.cuisine-sort{
+    background-color: #eee;
+    border : 1px solid black;
+    min-width: 250px;
+    top: 100%;
+    position: absolute;
+}
+.searches{
+    display: grid;  
+    grid-template-columns: 10% auto;
+    border : 1px solid black;
+    align-items: center;
+}
+.svg-cuisine{
+    width: 100%;
+    height: auto;
+}
+.cuisineList{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+span{
+    border : 1px solid black;
+}

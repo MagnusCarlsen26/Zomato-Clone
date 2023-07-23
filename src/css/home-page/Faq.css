@@ -1,0 +1,46 @@
+.padding{
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.faq-card{
+    cursor: pointer;
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.question{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: 100;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.answer{    
+    overflow: hidden;
+}
+
+.faq-card-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bla{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+.rotate-icon{
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+.bla-bla{
+    padding: 20px;  
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px solid white;
+    background-color: #262626;
+}
