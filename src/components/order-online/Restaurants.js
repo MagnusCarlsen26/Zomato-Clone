@@ -3,7 +3,6 @@ import restaurants from './assets/restaurants'
 import cuisineType from './assets/cuisine'
 import React, { useEffect }  from 'react'
 
-
 const Restaurants = () =>{
     
     const [cuisineHandler,setCuisineHandler] = React.useState(false)
