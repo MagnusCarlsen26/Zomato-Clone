@@ -2,6 +2,8 @@ import '../../css/order-online/Restaurants.css'
 import restaurants from './assets/restaurants' 
 import cuisineType from './assets/cuisine'
 import React, { useEffect }  from 'react'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
 
 const Restaurants = () =>{
     
@@ -138,7 +140,13 @@ const Restaurants = () =>{
             console.log(scanned[i])
             var item = restaurants[include[i]]
             console.log(item)
-            var t = (<div key={i} className='restaurant-card'>
+            var t = (
+                    <Link 
+                        to='/restaurant' 
+                        style={{textDecoration:'none',color:'#000' ,
+                        state: { restaurantData: item }
+                    }} >
+                        <div key={i} className='restaurant-card'>
                             <img src={`img/Order-Online/restaurants/${item.name}.webp`} />
                             <div className='resto-info' style={{gridTemplateColumns: '88% 12%',marginBottom:7}}>
                                 <p style={{fontSize:'1.3rem',fontWeight:'bold'}}>{item.name}</p>
@@ -153,7 +161,9 @@ const Restaurants = () =>{
                             <div className='safety' style={{marginBottom:7}} >
                                 { item.Delivery ?  safety(item.Delivery) : <></>  }
                             </div>
-                        </div>)
+                        </div>
+                    </Link>
+                    )
             tempArr.push(t)
             i++
             j++

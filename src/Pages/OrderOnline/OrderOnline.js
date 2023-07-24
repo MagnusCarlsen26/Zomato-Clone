@@ -5,6 +5,7 @@ import Footer from '../../components/home-page/Footer'
 import Faq from '../../components/home-page/Faq'
 import React from 'react'
 const OrderOnline = () => {
+    
     const [deliver , setDelivery] = React.useState(true)
     const [dining , setDining] = React.useState(false)
     const  t = 0
