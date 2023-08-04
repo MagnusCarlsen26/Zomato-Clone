@@ -1,17 +1,20 @@
 import './Restaurant.css'
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import {motion} from 'framer-motion'
 
-const Restaurant = (props) => {
-    const location = useLocation();
-    const restaurantData = location.state && location.state.restaurantData;
+const Restaurant = () => {
+
     return (
-        <>
+        <motion.div
+            initial={{x:'100vw'}}
+            animate={{x:0}}
+            exit={{x:'-100vw'}}
+            transition={{type:'tween'}}
+        >
             <div>
-            <h1>{restaurantData.name}</h1>
-            {/* Display other information using restaurantData */}
+                gt
             </div>
-        </>
+        </motion.div>
     )
 } 
 export default Restaurant

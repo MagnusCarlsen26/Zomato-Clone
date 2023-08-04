@@ -1,18 +1,12 @@
-import HomePage from './Pages/HomePage/HomePage'
-import OrderOnline from './Pages/OrderOnline/OrderOnline'
-import Restaurant from './Pages/Restaurant/Restaurant'
+import { AnimatePresence } from 'framer-motion';
+import AnimatedRoutes from './AnimatedRoutes';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 
 function App() {
-    console.log(<HomePage/>)
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path='/order-online' element={<OrderOnline/>} />
-                <Route path='/restaurant' element={<Restaurant/>} />
-            </Routes>
+            <AnimatedRoutes />
         </Router>
     );
 }

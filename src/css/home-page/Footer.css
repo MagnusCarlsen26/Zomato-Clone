@@ -1,32 +1,47 @@
+.abcde{
+    padding-right: 200px;
+    padding-left: 200px;    
+}
+.abcde li,.copyright{
+    color: rgb(105, 105, 105);
+}
+.lettterspace{
+    letter-spacing: 0.2rem;
+    color: black;
+}
 .footer{
+    background-color: #f8f8f8;
     padding-top: 40px;
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    color: rgb(181, 196, 209);
+    color: rgb(0, 0, 0);
 }
 ul{
     list-style-type: none;
     line-height: 32px;
 }
-.khushal{
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
 .social-icons a{
     padding-right: 10px;
 }
 .social-icons{
+    display: flex;
     padding-bottom: 10px;
 }
 .footer img{
     width: 150px;
-    padding-bottom: 7   px;
+    padding-bottom: 7px;
 }
 .hr{
     margin-top: 40px;
 }
 .copyright{
+    font-size: 0.9rem;
     margin-top: 40px;
     padding-bottom: 40px;    
+}
+.abcd .khushal{
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+    letter-spacing: 0.2rem;
+    color: black;
 }

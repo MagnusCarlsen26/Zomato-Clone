@@ -4,23 +4,29 @@ import Collections from '../../components/home-page/Collections'
 import Faq from '../../components/home-page/Faq'
 import Footer from '../../components/home-page/Footer'
 import './Homepage.css'
-
+import { AnimatePresence,motion } from 'framer-motion'
 const HomePage = () => {
     return (
-        <>
-            <div className='bg'>
-                <div className='sheet'>
-                    <Nav />
-                    <Hero />
+            <motion.div
+                initial={{x:'100vw'}}
+                animate={{x:0}}
+                exit={{x:'-100vw'}}
+                transition={{type:'tween'}}
+            >
+                <div className='bg'>
+                    <div className='sheet'>
+                        <Nav />
+                        <Hero />
+                    </div>
                 </div>
-            </div>
-            <div className='two'>
-                <Collections />
-                <Faq />
-                <Footer />
-            </div>
-        </>
+                <div className='two'>
+                    <Collections />
+                    <Faq />
+                </div>
+                    <Footer />
+            </motion.div>
+
     )
 }
-console.log(HomePage)
+
 export default HomePage

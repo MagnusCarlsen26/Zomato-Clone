@@ -1,10 +1,13 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable react-hooks/exhaustive-deps */
 import '../../css/order-online/Restaurants.css'
 import restaurants from './assets/restaurants' 
 import cuisineType from './assets/cuisine'
 import React, { useEffect }  from 'react'
 import { Link } from 'react-router-dom'
 import { useLocation } from 'react-router-dom';
-
+import {AnimatePresence, motion} from 'framer-motion'
 const Restaurants = () =>{
     
     const [cuisineHandler,setCuisineHandler] = React.useState(false)
@@ -38,27 +41,32 @@ const Restaurants = () =>{
 
     const Cuisine = () => {
         return (
-            <>
-            <div className='cuisine-sort' >
-                <p style={{fontSize:'2.4rem',fontWeight:'500'}}>Cuisine</p>
-                <div className='searches'>
-                    <input  placeholder={'Search for restaurant, cuisine or a dish'}></input>
-                </div>
-                <div className='cuisineList'>
-                    {cuisineList}
-                </div>
-                <div style={{display:'flex',justifyContent:'space-between',paddingTop: 20,paddingBottom: 20}}>
-                    <span className='span' style={{backgroundColor:"#eee",color:"#282828"}} onClick={() => {setCheckedCuisine( () => new Array(cuisineType.length).fill(false))}}>Clear all</span>
-                    <span className='span' style={{backgroundColor:"#ef4f5f",color:"#fff"}} onClick={() => {setCuisineHandler( (item) => {console.log(apply);return !item;} ) ;setApply((apply)=>(apply+1)) }}>Apply</span>
-                </div>
-            </div>
-            </>
+            <AnimatePresence>
+
+                {cuisineHandler && <motion.div 
+                    initial={{scale:0}}
+                    animate={{scale:1}}
+                    exit={{scale:0}}
+                    className='cuisine-sort' >
+                    <p style={{fontSize:'2.4rem',fontWeight:'500'}}>Cuisine</p>
+                    <div className='searches'>
+                        <input  placeholder={'Search for restaurant, cuisine or a dish'}></input>
+                    </div>
+                    <div className='cuisineList'>
+                        {cuisineList}
+                    </div>
+                    <div style={{display:'flex',justifyContent:'space-between',paddingTop: 20,paddingBottom: 20}}>
+                        <span className='span' style={{backgroundColor:"#eee",color:"#282828"}} onClick={() => {setCheckedCuisine( () => new Array(cuisineType.length).fill(false))}}>Clear all</span>
+                        <span className='span' style={{backgroundColor:"#ef4f5f",color:"#fff"}} onClick={() => {setCuisineHandler( (item) => {console.log(apply);return !item;} ) ;setApply((apply)=>(apply+1)) }}>Apply</span>
+                    </div>
+                </motion.div>}
+            </AnimatePresence>
 
         )
     }
     useEffect( () => {
         var c = 0
-        const t = checkedCuisine.map( (item,index) => { if (item)  { c=c+1;return(<div className='filter text-center' style={{backgroundColor:'#ef4f5f',color:'#fff'}} key={index}><p>{cuisineType[index]}</p></div>)}; } )
+        const t = checkedCuisine.map( (item,index) => { if (item)  { c=c+1;return(<motion.div initial={{scale:0}} animate={{scale:1}} className='filter text-center' style={{backgroundColor:'#ef4f5f',color:'#fff'}} key={index}><p>{cuisineType[index]}</p></motion.div>)}; } )
         setExtra(t)
         setNumber(c)
     },[apply])    
@@ -141,28 +149,36 @@ const Restaurants = () =>{
             var item = restaurants[include[i]]
             console.log(item)
             var t = (
-                    <Link 
-                        to='/restaurant' 
-                        style={{textDecoration:'none',color:'#000' ,
-                        state: { restaurantData: item }
-                    }} >
-                        <div key={i} className='restaurant-card'>
-                            <img src={`img/Order-Online/restaurants/${item.name}.webp`} />
-                            <div className='resto-info' style={{gridTemplateColumns: '88% 12%',marginBottom:7}}>
-                                <p style={{fontSize:'1.3rem',fontWeight:'bold'}}>{item.name}</p>
-                                {rating(item.Rating)}
+                <AnimatePresence>
+                    <motion.div
+                    initial={{scale:0}}
+                    animate={{scale:1}}
+                    exit={{scale:0}}
+                    >
+                        <Link 
+                            to='/restaurant' 
+                            style={{textDecoration:'none',color:'#000' ,
+                            state: { restaurantData: item }
+                        }} >
+                            <div key={i} className='restaurant-card'>
+                                <img src={`img/Order-Online/restaurants/${item.name}.webp`} />
+                                <div className='resto-info' style={{gridTemplateColumns: '88% 12%',marginBottom:7}}>
+                                    <p style={{fontSize:'1.3rem',fontWeight:'bold'}}>{item.name}</p>
+                                    {rating(item.Rating)}
+                                </div>
+                                <div className='resto-info' style={{color:'rgb(105 105 105)' ,marginBottom:7, gridTemplateColumns:'75% 25%'}}>
+                                    <p>{item.Cuisine}</p>
+                                    <p style={{textAlign:'right'}}>&#8377;{item.AverageCost} for one</p>
+                                </div>
+                                <p style={{textAlign:'right',color:'rgb(54, 54, 54)'}}>{item.AverageTime} min</p>
+                                {item.Delivery ? <hr style={{marginTop: '10px'}}></hr>: <></>}
+                                <div className='safety' style={{marginBottom:7}} >
+                                    { item.Delivery ?  safety(item.Delivery) : <></>  }
+                                </div>
                             </div>
-                            <div className='resto-info' style={{color:'rgb(105 105 105)' ,marginBottom:7, gridTemplateColumns:'75% 25%'}}>
-                                <p>{item.Cuisine}</p>
-                                <p style={{textAlign:'right'}}>&#8377;{item.AverageCost} for one</p>
-                            </div>
-                            <p style={{textAlign:'right',color:'rgb(54, 54, 54)'}}>{item.AverageTime} min</p>
-                            {item.Delivery ? <hr style={{marginTop: '10px'}}></hr>: <></>}
-                            <div className='safety' style={{marginBottom:7}} >
-                                { item.Delivery ?  safety(item.Delivery) : <></>  }
-                            </div>
-                        </div>
-                    </Link>
+                        </Link>
+                    </motion.div>
+                </AnimatePresence>
                     )
             tempArr.push(t)
             i++
@@ -176,15 +192,18 @@ const Restaurants = () =>{
     }
 
     return (
-        <>
-            <div className='sticky-filters'>
+        <AnimatePresence>
+            <motion.div className='sticky-filters'>
                 <div className='filters'  style={{marginRight:200,marginLeft:200,marginTop:10,marginBottom:20,paddingTop:20}}>
                     <div className='filter text-center'>
-                        { number ? <p style={{backgroundColor:'#ef4f5f',color:'#fff',padding: '2px 7px',borderRadius:5}}>{number}</p> :
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ">
-                                <path d="M2.14 6.42h7.26c0.353 1.207 1.45 2.074 2.75 2.074s2.397-0.867 2.745-2.054l0.005-0.020h2.96c0.343-0.059 0.6-0.355 0.6-0.71s-0.258-0.651-0.596-0.709l-0.004-0.001h-2.94c-0.341-1.226-1.447-2.11-2.76-2.11s-2.419 0.885-2.755 2.090l-0.005 0.020h-7.26c-0.343 0.059-0.6 0.355-0.6 0.71s0.257 0.651 0.596 0.709l0.004 0.001zM12.16 4.28c0.776 0.011 1.4 0.643 1.4 1.42 0 0.784-0.636 1.42-1.42 1.42-0.777 0-1.409-0.624-1.42-1.399l-0-0.001c-0-0.006-0-0.013-0-0.020 0-0.784 0.636-1.42 1.42-1.42 0.007 0 0.014 0 0.021 0l-0.001-0zM17.86 13.58h-7.24c-0.328-1.245-1.443-2.148-2.77-2.148s-2.442 0.903-2.766 2.128l-0.004 0.020h-2.94c-0.036-0.006-0.077-0.010-0.12-0.010-0.398 0-0.72 0.322-0.72 0.72s0.322 0.72 0.72 0.72c0.042 0 0.084-0.004 0.124-0.011l-0.004 0.001h2.96c0.353 1.207 1.45 2.074 2.75 2.074s2.397-0.867 2.745-2.054l0.005-0.020h7.26c0.343-0.059 0.6-0.355 0.6-0.71s-0.258-0.651-0.596-0.709l-0.004-0.001zM7.84 15.72c-0.776-0.011-1.4-0.643-1.4-1.42 0-0.784 0.636-1.42 1.42-1.42 0.777 0 1.409 0.624 1.42 1.399l0 0.001c0 0.006 0 0.013 0 0.020 0 0.784-0.636 1.42-1.42 1.42-0.007 0-0.014-0-0.021-0l0.001 0z"></path>
-                            </svg>
-                        }   
+                        <AnimatePresence>
+                        { number && <motion.p initial={{scale:0}} animate={{scale:1}} exit={{scale:0}} style={{backgroundColor:'#ef4f5f',color:'#fff',padding: '2px 7px',borderRadius:5}}>{number}</motion.p> }   
+                        </AnimatePresence>
+                        <AnimatePresence>
+                         {!number &&<motion.svg initial={{scale:0}} animate={{scale:1}} exit={{scale:0}}  xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ">
+                            <path d="M2.14 6.42h7.26c0.353 1.207 1.45 2.074 2.75 2.074s2.397-0.867 2.745-2.054l0.005-0.020h2.96c0.343-0.059 0.6-0.355 0.6-0.71s-0.258-0.651-0.596-0.709l-0.004-0.001h-2.94c-0.341-1.226-1.447-2.11-2.76-2.11s-2.419 0.885-2.755 2.090l-0.005 0.020h-7.26c-0.343 0.059-0.6 0.355-0.6 0.71s0.257 0.651 0.596 0.709l0.004 0.001zM12.16 4.28c0.776 0.011 1.4 0.643 1.4 1.42 0 0.784-0.636 1.42-1.42 1.42-0.777 0-1.409-0.624-1.42-1.399l-0-0.001c-0-0.006-0-0.013-0-0.020 0-0.784 0.636-1.42 1.42-1.42 0.007 0 0.014 0 0.021 0l-0.001-0zM17.86 13.58h-7.24c-0.328-1.245-1.443-2.148-2.77-2.148s-2.442 0.903-2.766 2.128l-0.004 0.020h-2.94c-0.036-0.006-0.077-0.010-0.12-0.010-0.398 0-0.72 0.322-0.72 0.72s0.322 0.72 0.72 0.72c0.042 0 0.084-0.004 0.124-0.011l-0.004 0.001h2.96c0.353 1.207 1.45 2.074 2.75 2.074s2.397-0.867 2.745-2.054l0.005-0.020h7.26c0.343-0.059 0.6-0.355 0.6-0.71s-0.258-0.651-0.596-0.709l-0.004-0.001zM7.84 15.72c-0.776-0.011-1.4-0.643-1.4-1.42 0-0.784 0.636-1.42 1.42-1.42 0.777 0 1.409 0.624 1.42 1.399l0 0.001c0 0.006 0 0.013 0 0.020 0 0.784-0.636 1.42-1.42 1.42-0.007 0-0.014-0-0.021-0l0.001 0z"></path>
+                         </motion.svg>}
+                         </AnimatePresence>
                         <p style={{marginLeft:4}}>Filters</p>
                     </div>
                     {extra}
@@ -194,21 +213,17 @@ const Restaurants = () =>{
                             <p>Cuisines</p>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#9C9C9C" width="18" height="18" viewBox="0 0 20 20" aria-labelledby="icon-svg-title- icon-svg-desc-" role="img" class="sc-rbbb40-0 iwHbVQ"><title>chevron-down</title><path d="M4.48 7.38c0.28-0.28 0.76-0.28 1.060 0l4.46 4.48 4.48-4.48c0.28-0.28 0.76-0.28 1.060 0s0.28 0.78 0 1.060l-5 5c-0.3 0.3-0.78 0.3-1.060 0l-5-5c-0.3-0.28-0.3-0.76 0-1.060z"></path></svg>
                         </div>
-                        {cuisineHandler? Cuisine() : <></> }
+                        {Cuisine()}
                     </div>
                 </div>
                 <hr></hr>
-            </div>
+            </motion.div>
             <div style={{marginRight:200,marginLeft:200,marginTop:10,marginBottom:50}}>
                 <div className='restaurant-cards' >
                     {arr}
                 </div>
             </div>
-
-
-            
-            
-        </>
+        </AnimatePresence>
     )
 }
 

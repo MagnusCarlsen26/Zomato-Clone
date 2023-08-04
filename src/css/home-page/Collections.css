@@ -6,7 +6,7 @@
     justify-content: space-between;
     cursor: pointer;
     margin-bottom: 40px;
-}
+} 
 .option img{
     object-fit: cover;
     object-position: center;
@@ -16,7 +16,7 @@
     border-top-left-radius: 25px;
 }
 .option{
-    border : 1px solid white;
+    border : 1px solid rgb(0, 0, 0);
     border-radius: 25px;
 }
 .optio-text{
@@ -28,7 +28,7 @@
     font-size: 1.5rem;
 }
 .dees{
-    color: #ffffffab;
+    color: #000;
 }
 .text{
     /* border : 1px solid white; */
@@ -51,7 +51,7 @@
     /* border : 1px solid white; */
     position: relative;
     margin-top: auto;
-    color: yellow;
+    color: #000;
     text-decoration: none;
 }
 .cards{
@@ -66,12 +66,12 @@
     background-size: cover;
     background-position: center;
     border-radius: 10px;
-    border : 1px solid white;
+    border : 1px solid rgb(0, 0, 0);
     
 }
 .card:hover{
     cursor: pointer;
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    text-shadow: 0 0 10px #000000, 0 0 20px #000000, 0 0 30rgb(0, 0, 0)fff;
     
 }
 .card-sheet{
@@ -85,6 +85,9 @@
     font-size: 1.1rem;
     border-radius: 10px;
 }
+.card-sheet{
+    color: aliceblue;
+}
 .places{
     margin-top: 50px;
     display: grid;
@@ -94,17 +97,19 @@
     
 }
 .place{
+    border: 1px solid rgb(232, 232, 232);
+    box-shadow: rgba(28, 28, 28, 0.08) 0px 1.42623px 2.85246px;
     position: relative;
     display: flex;
     justify-content: space-between;
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid white;
     line-height: 30px;
     transition: background-position 0.5s;
 }
 .color-change{
     font-size: 0.9rem;
+    color: rgb(54, 54, 54);
     /* color: #ffffff90; */
 }
 .place:hover{

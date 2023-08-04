@@ -3,8 +3,9 @@ import bestPlaces from './assets/Collection/bestPlaces'
 import popularLocalities from './assets/Collection/popularLocalities'
 import React from 'react'
 import { type } from '@testing-library/user-event/dist/type'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+
 export default function Collections() {
 
     const cards = bestPlaces.map( (item) => {
@@ -23,16 +24,18 @@ export default function Collections() {
 
     var places = popularLocalities.map( (item) => {
         return (
-            <div 
-            className='place'
-            key={item.id}
-            >
-                <motion.div>
-                    <p className='inc-font'>{item.location}</p>
-                    <p className='color-change'>{item.number} Places</p>
+            <AnimatePresence>
+                <motion.div 
+                    className='place'
+
+                >
+                        <div>
+                            <p className='inc-font'>{item.location}</p>
+                            <p className='color-change'>{item.number} Places</p>
+                        </div>
+                    <p className='arrow'>🞂</p>
                 </motion.div>
-                <p className='arrow'>🞂</p>
-            </div>
+            </AnimatePresence>
         )
     })
     console.log(type(places))
